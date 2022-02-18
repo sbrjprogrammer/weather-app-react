@@ -7,13 +7,14 @@ function App() {
   const [weather, setWeather] = useState({});
   const [locations, setLocations] = useState("london");
   const [photos, setPhotos] = useState([]);
+
   useEffect(() => {
     ifClicked();
   }, []);
 
   function ifClicked() {
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${locations}&APPID={APP_ID}&units=metric`
+      `http://api.openweathermap.org/data/2.5/weather?q=${locations}&APPID=3a02abd53a9a745403502470e8827044&units=metric`
     )
       .then((res) => {
         if (res.ok) {
@@ -32,8 +33,11 @@ function App() {
         console.log(weather);
       })
       .catch((error) => console.log(error));
+
+
+
     fetch(
-      `https://api.unsplash.com/search/photos?query=${locations}&client_id={APP_ID}`
+      `https://api.unsplash.com/search/photos?query=${locations}&client_id=9ndZtjVYCPpFL6swrMoRIcwGSUdZPO-KWlwNApOb-Gg`
     )
       .then((res) => {
         if (res.ok) {
